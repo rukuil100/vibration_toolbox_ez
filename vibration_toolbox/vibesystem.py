@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 __all__ = ['VibeSystem']
 
-plt.style.use('seaborn-white')
+plt.style.use('seaborn-v0_8-white')
 
 color_palette = ["#4C72B0", "#55A868", "#C44E52",
                  "#8172B2", "#CCB974", "#64B5CD"]
