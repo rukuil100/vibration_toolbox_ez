@@ -775,14 +775,14 @@ def rotating_unbalance(m, m0, e, zs, rmin, rmax, normalized=True):
     if normalized is False:
         Xn = Xn * (m0 * e / m)
         ax1.set_ylabel('Velikost výchylky')
-        ax1.set_title('Velykost výchylky vs frekvenční poměr')
+        ax1.set_title('Velykost výchylky vs poměrné naladění')
     else:
         ax1.set_ylabel('Normalizovaná velikost výchylky')
-        ax1.set_title('Normalizovaná veliksot výchylky vs frekvenční poměr')
+        ax1.set_title('Normalizovaná velikost výchylky vs poměrné naladění')
 
-    ax2.set_xlabel('Frekvenční poměr')
+    ax2.set_xlabel('Poměrné naladění')
     ax2.set_ylabel('Fáze')
-    ax2.set_title('Fáze vs Frekvenční poměr')
+    ax2.set_title('Fáze vs Poměrné naladění')
 
     for X_z in Xn:
         ax1.plot(r, np.absolute(X_z))
