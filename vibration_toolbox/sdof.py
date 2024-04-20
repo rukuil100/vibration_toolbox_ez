@@ -774,15 +774,15 @@ def rotating_unbalance(m, m0, e, zs, rmin, rmax, normalized=True):
 
     if normalized is False:
         Xn = Xn * (m0 * e / m)
-        ax1.set_ylabel('Displacement Magnitude')
-        ax1.set_title('Displacement Magnitude vs Frequency Ratio')
+        ax1.set_ylabel('Velikost výchylky')
+        ax1.set_title('Velykost výchylky vs frekvenční poměr')
     else:
-        ax1.set_ylabel('Normalized Displacement Magnitude')
-        ax1.set_title('Normalized Displacement Magnitude vs Frequency Ratio')
+        ax1.set_ylabel('Normalizovaná velikost výchylky')
+        ax1.set_title('Normalizovaná veliksot výchylky vs frekvenční poměr')
 
-    ax2.set_xlabel('Frequency Ratio')
-    ax2.set_ylabel('Phase')
-    ax2.set_title('Phase vs Frequency Ratio')
+    ax2.set_xlabel('Frekvenční poměr')
+    ax2.set_ylabel('Fáze')
+    ax2.set_title('Fáze vs Frekvenční poměr')
 
     for X_z in Xn:
         ax1.plot(r, np.absolute(X_z))
