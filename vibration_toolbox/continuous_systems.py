@@ -252,7 +252,7 @@ def euler_beam_frf(xin=0.22, xout=0.32, fmin=0.0, fmax=1000.0, zeta=0.02,
     L = beamparams[4]
     npoints = 2001
     i = 0
-    w = np.linspace(fmin, fmax, 2001) * 2 * sp.pi
+    w = np.linspace(fmin, fmax, 2001) * 2 * np.pi
     if min([xin, xout]) < 0 or max([xin, xout]) > L:
         print('One or both locations are not on the beam')
         return
@@ -261,7 +261,7 @@ def euler_beam_frf(xin=0.22, xout=0.32, fmin=0.0, fmax=1000.0, zeta=0.02,
     a = np.empty([npoints, 200], dtype=complex)
     f = np.empty(100)
 
-    while wn[-1] < 1.3 * (fmax * 2 * sp.pi):
+    while wn[-1] < 1.3 * (fmax * 2 * np.pi):
         i = i + 1
         wn, xx, U = euler_beam_modes(n=i, bctype=bctype,
                                      beamparams=beamparams, npoints=5000)
@@ -270,13 +270,13 @@ def euler_beam_frf(xin=0.22, xout=0.32, fmin=0.0, fmax=1000.0, zeta=0.02,
         Uout = spl(xout)
         a[:, i - 1] = rho * A * Uin * Uout / \
             (wn[-1] ** 2 - w ** 2 + 2 * zeta * wn[-1] * w * np.lib.scimath.sqrt(-1))
-        f[i] = wn[-1] / 2 / sp.pi
+        f[i] = wn[-1] / 2 / np.pi
     a = a[:, 0:i]
     plt.figure()
     plt.subplot(211)
-    plt.plot(w / 2 / sp.pi, 20 * np.lib.scimath.log10(np.absolute(np.sum(a, axis=1))), '-')
+    plt.plot(w / 2 / np.pi, 20 * np.lib.scimath.log10(np.absolute(np.sum(a, axis=1))), '-')
     # plt.hold(True)
-    plt.plot(w / 2 / sp.pi, 20 * np.lib.scimath.log10(np.absolute(a)), '-')
+    plt.plot(w / 2 / np.pi, 20 * np.lib.scimath.log10(np.absolute(a)), '-')
     plt.grid(True)
     plt.xlabel('Frequency (Hz)')
     plt.ylabel('FRF (dB)')
@@ -286,9 +286,9 @@ def euler_beam_frf(xin=0.22, xout=0.32, fmin=0.0, fmax=1000.0, zeta=0.02,
                                0.1 * (axlim[3] - axlim[2])]))
 
     plt.subplot(212)
-    plt.plot(w / 2 / sp.pi, np.unwrap(np.angle(np.sum(a, axis=1))) /
-             sp.pi * 180, '-')
-    plt.plot(w / 2 / sp.pi, np.unwrap(np.angle(a)) / sp.pi * 180, '-')
+    plt.plot(w / 2 / np.pi, np.unwrap(np.angle(np.sum(a, axis=1))) /
+             np.pi * 180, '-')
+    plt.plot(w / 2 / np.pi, np.unwrap(np.angle(a)) / np.pi * 180, '-')
     plt.grid(True)
     plt.xlabel('Frequency (Hz)')
     plt.ylabel('Phase (deg)')
@@ -298,7 +298,7 @@ def euler_beam_frf(xin=0.22, xout=0.32, fmin=0.0, fmax=1000.0, zeta=0.02,
                                0.1 * (axlim[3] - axlim[2])]))
     plt.show()
 
-    fout = w / 2 / sp.pi
+    fout = w / 2 / np.pi
     H = a
     return fout, H
 
