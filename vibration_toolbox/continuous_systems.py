@@ -278,8 +278,8 @@ def euler_beam_frf(xin=0.22, xout=0.32, fmin=0.0, fmax=1000.0, zeta=0.02,
     # plt.hold(True)
     plt.plot(w / 2 / np.pi, 20 * np.lib.scimath.log10(np.absolute(a)), '-')
     plt.grid(True)
-    plt.xlabel('Frequency (Hz)')
-    plt.ylabel('FRF (dB)')
+    plt.xlabel('Frekvence (Hz)')
+    plt.ylabel('Funkce frekvenční odezvy (dB)')
     axlim = plt.axis()
 
     plt.axis(axlim + np.array([0, 0, -0.1 * (axlim[3] - axlim[2]),
@@ -290,8 +290,8 @@ def euler_beam_frf(xin=0.22, xout=0.32, fmin=0.0, fmax=1000.0, zeta=0.02,
              np.pi * 180, '-')
     plt.plot(w / 2 / np.pi, np.unwrap(np.angle(a)) / np.pi * 180, '-')
     plt.grid(True)
-    plt.xlabel('Frequency (Hz)')
-    plt.ylabel('Phase (deg)')
+    plt.xlabel('Frekvence(Hz)')
+    plt.ylabel('Fáze (deg)')
     plt.tight_layout()
     axlim = plt.axis()
     plt.axis(axlim + np.array([0, 0, -0.1 * (axlim[3] - axlim[2]),
